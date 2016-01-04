@@ -12,34 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
 
-/**
- * Created by cmi on 30/12/15.
- */
 public class RawRequestLoggerServlet extends HttpServlet {
 
     static final Logger LOG = LoggerFactory.getLogger(RawRequestLoggerServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        traceHttp(req, resp);
+        traceHttp(req);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        traceHttp(req, resp);
+        traceHttp(req);
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        traceHttp(req, resp);
+        traceHttp(req);
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        traceHttp(req, resp);
+        traceHttp(req);
     }
 
-    private void traceHttp(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void traceHttp(HttpServletRequest req) throws IOException {
+
+        LOG.info("------------------");
         LOG.info(req.getMethod() + " " + req.getRequestURI() + " " + req.getProtocol());
 
         LOG.info("--- Header ---");
