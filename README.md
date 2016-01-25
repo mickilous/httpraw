@@ -9,3 +9,7 @@ The Raw HTTP Request will be logged in console by default.
 mvn clean install
 mvn jetty:run
 ````
+To specify another port
+````
+mvn jetty:run -Djetty.http.port=9999
+````
